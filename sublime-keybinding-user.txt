@@ -1,0 +1,11 @@
+[
+	{ "keys": ["ctrl+alt+l"], "command": "reindent" },
+	{  
+        "keys": ["f4"],  
+        "command": "toggle_setting",  
+        "args":  
+        {  
+                "setting": "word_wrap"  
+        }  
+	},
+]
