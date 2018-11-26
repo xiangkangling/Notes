@@ -73,6 +73,14 @@
 <p>按住shift键 然后右键 点击<code>在此处打开命令窗口</code></p>
 <h5 id="-">清空命令行</h5>
 <p>cls</p>
+<h5 id="window-ssh-key-">window下生成SSH key(公钥)</h5>
+<p>cd到c:/Users/Administrator/.ssh目录下,然后执行:</p>
+<pre><code class="lang-js">ssh-keygen -t rsa
+</code></pre>
+<h5 id="-">查看公钥</h5>
+<pre><code class="lang-js">cat ~/.ssh/id_rsa.pub 
+</code></pre>
+<p>或打开c:/Users/Administrator/.ssh/，在文件中，id_rsa是私钥文件，id_rsa.pub是公钥文件</p>
 
           	</article>
         </div>
