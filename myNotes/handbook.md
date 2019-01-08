@@ -16,6 +16,5 @@ function Tobase64() {
         console.log(e.target.result)    //打印base64字符串
     }
 }
-
 ```
 
