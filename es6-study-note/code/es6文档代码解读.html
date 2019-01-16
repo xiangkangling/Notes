@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1
+        function* fibs() {
+            let a = 0;
+            let b = 1;
+            while (true) {
+                yield a;
+                [a, b] = [b, a + b];
+            }
+        }
+
+        let [first, second, third, fourth, fifth, sixth] = fibs();
+        console.log(sixth) // 5
+        // 个人理解
+        // 解构赋值的时候默认直接调用Generator函数,  Generator 函数原生具有 Iterator 接口, 相当于赋值的时候, 这个// 函数的内部语句会进行循环, 循环次数就是左边数组里面变量的个数, 这样返回的值相当于,
+        // first, second, third, fourth, fifth, sixth
+        // 0,      1,      2,       3,      4,     5
+        // 所以打印出来的sixth 是5
+
+        // 2
+        let total = 30;
+        let msg = passthru`The total is ${total} (${total * 1.05} with tax)`;
+
+        function passthru(literals) {
+            console.log(literals.length);   // 3
+            console.log(arguments.length);   // 3
+            let result = '';
+            let i = 0;
+            while (i < literals.length) {   // literals.length 3
+                result += literals[i++];     
+                if (i < arguments.length) {   // arguments.length 3
+                    result += arguments[i];
+                }
+            }
+            return result;
+        }
+        console.log(msg);
+        // The total is 30 (31.5 with tax)
+    </script>
+</body>
+
+</html>

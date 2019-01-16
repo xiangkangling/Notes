@@ -71,7 +71,66 @@
 <h3 id="const">const</h3>
 <p>声明一个只读的常量, 值不可改变<br>一旦声明, 必须立即赋值  </p>
 <h3 id="-">块级作用域</h3>
-<p>let 和 const 都在只在声明的作用域内有效<br>不可重复声明        </p>
+<p>let 和 const 都在只在声明的作用域内有效<br>不可重复声明    </p>
+<h3 id="-">解构赋值</h3>
+<p>设置默认值时, 只有当当前数组成员严格等于<code>( === )</code>undefined, 设置的默认值才会生效<br>如果默认值是一个表达式, 这个表达式是惰性求值的, 即只有用到的时候才会去求职<br>例如:</p>
+<pre><code class="lang-js">function f() {
+  console.log(&#39;aaa&#39;);  
+}
+
+let [x = f()] = [1];   // 赋值的时候aaa不会打印.
+</code></pre>
+<p>上面的例子中, 因为数组<code>[1]</code>的第一个值不为<code>undefined</code>, 所以可以取到值1, 所以不需要默认值, 那么函数f()不会执行, 则aaa也不会打印.<br>字符串也可以结构赋值    </p>
+<pre><code class="lang-js">const [a, b, c, d, e] = &#39;hello&#39;;
+a // &quot;h&quot;
+b // &quot;e&quot;
+c // &quot;l&quot;
+d // &quot;l&quot;
+e // &quot;o&quot;
+</code></pre>
+<h3 id="-">字符串</h3>
+<p>字符串方法      </p>
+<pre><code class="lang-js">includes() 
+startsWith()
+endsWith()
+repeat()
+padStart()   // 头部补全
+padEnd()    // 尾部补全
+matchAll()   // 正则匹配
+</code></pre>
+<h3 id="-">模板字符串</h3>
+<p>可定义多行字符串<br>可嵌入变量<code>${string}</code><br>大括号中可以是任意可执行的JS表达式, 可以是函数, 表达式输出结果不是字符串, 默认调用.toString()方法后输出   </p>
+<h3 id="-">标签模板</h3>
+<p>标签模板是函数调用的一种特殊形式<br>借助代码理解一下:</p>
+<pre><code class="lang-js">let a = 5;
+let b = 10;
+tag`Hello ${ a + b } world ${ a * b }`;
+// 等同于
+tag([&#39;Hello &#39;, &#39; world &#39;, &#39;&#39;], 15, 50);
+function tag(stringArr, value1, value2){
+  // ...
+}
+// 等同于
+function tag(stringArr, ...values){
+  // ...
+}
+
+function tag(s, v1, v2) {
+  console.log(s[0]);
+  console.log(s[1]);
+  console.log(s[2]);
+  console.log(v1);
+  console.log(v2);
+  return &quot;OK&quot;;
+}
+tag`Hello ${ a + b } world ${ a * b}`;
+// &quot;Hello &quot;
+// &quot; world &quot;
+// &quot;&quot;
+// 15
+// 50
+// &quot;OK&quot;
+</code></pre>
 
           	</article>
         </div>
