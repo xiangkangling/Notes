@@ -20,6 +20,15 @@ ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub 
 ```  
 或打开c:/Users/Administrator/.ssh/，在文件中，id_rsa是私钥文件，id_rsa.pub是公钥文件
+##### git的基本命令
+```npm
+git init    // 初始化
+git add README.md   // 添加某一个文件
+git add .      // 添加所有文件
+git commit -m "first commit"    // 提交文件,并给出提交内容的描述
+git remote add origin https://git.oschina.net/name/package.git   // 设置仓库的别名为origin, 这里用自己仓库的url
+git push origin master  // 提交到仓库
+```
 
 
 
