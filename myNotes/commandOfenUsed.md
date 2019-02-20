@@ -29,6 +29,13 @@ git commit -m "first commit"    // 提交文件,并给出提交内容的描述
 git remote add origin https://git.oschina.net/name/package.git   // 设置仓库的别名为origin, 这里用自己仓库的url
 git push origin master  // 提交到仓库
 ```
+##### live-server的安装和使用命令
+安装: `npm install -g live-server`    
+打开: `live-server`   
+指定端口打开(当默认端口8080被占用时使用): `live-server --port=8090`      
+指定主机打开(默认主机是localhost): `live-server --host=127.0.0.1`        
+
+
 
 
 
