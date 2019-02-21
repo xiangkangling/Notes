@@ -28,11 +28,12 @@ git add .      // 添加所有文件
 git commit -m "first commit"    // 提交文件,并给出提交内容的描述
 git remote add origin https://git.oschina.net/name/package.git   // 设置仓库的别名为origin, 这里用自己仓库的url
 git push origin master  // 提交到仓库
+git remote rm origin  // 删除远程仓库
 ```
 ##### git给远程库添加多个地址
 增加第一个地址 `git remote add origin <url1>`          
 然后增加第二个地址 `git remote set-url --add origin <url2>`      
-增加第三个地址 git `remote set-url --add origin <url3>`        
+增加第三个地址 `git remote set-url --add origin <url3>`        
 
 ##### live-server的安装和使用命令
 安装: `npm install -g live-server`    
