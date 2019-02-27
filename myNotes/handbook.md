@@ -17,4 +17,8 @@ function Tobase64() {
     }
 }
 ```
+#### 将下面的代码放在console控制台中执行，整个页面将变得可编辑
+```js
+document.body.contentEditable='true'
+```
 
