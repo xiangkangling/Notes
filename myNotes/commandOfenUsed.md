@@ -41,7 +41,6 @@ git remote rm origin  // 删除远程仓库
 指定端口打开(当默认端口8080被占用时使用): `live-server --port=8090`      
 指定主机打开(默认主机是localhost): `live-server --host=127.0.0.1` 
 
-test
       
 
 
