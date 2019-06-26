@@ -27,8 +27,23 @@ git add README.md   // 添加某一个文件
 git add .      // 添加所有文件
 git commit -m "first commit"    // 提交文件,并给出提交内容的描述
 git remote add origin https://git.oschina.net/name/package.git   // 设置仓库的别名为origin, 这里用自己仓库的url
-git push origin master  // 提交到仓库
+git push origin master  // 提交到仓库master分支
 git remote rm origin  // 删除远程仓库
+```
+##### git分支相关命令
+```js
+git branch        // 查看本地分支
+git branch -a       // 查看远程分支
+git branch test       // 创建test分支
+git branch -d test      //删除test分支
+git checkout test     // 切换到test分支
+git remote -v        // 查看远程仓库的地址
+
+```
+##### git合并分支
+```js
+git checkout master     // 先切换到master分支
+git merge test          // 再将test分支合并到master分支上(如果有冲突需要手动解决)
 ```
 ##### git给远程库添加多个地址
 增加第一个地址 `git remote add origin <url1>`          
