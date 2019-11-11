@@ -1,7 +1,7 @@
 <html>
   <head>
 	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>i5ting_ztree_toc:qksheetProjectReadingNotes</title>
+    <title>i5ting_ztree_toc:codingNote</title>
 		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
 		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
 		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
@@ -144,10 +144,28 @@ var d=a.replace(/\d([a-z]+)(\d+)/g,function(str,word1,word2,index){
 </code></pre>
 <h4 id="iframe-">iframe父调子页面方法和子调父页面方法</h4>
 <pre><code class="lang-js">// 父调子:
-myFrame.window.functionName();   // myFrame为iframe的name属性 name=&quot;myFrame&quot;
+// 方法一: 
+myFrame.window.functionName();  // myFrame为iframe的name属性 name=&quot;myFrame&quot;, 有兼容性问题, 大部分浏览器不支持
+// 方法二:
+$(&quot;#myframe&quot;)[0].contentWindow.functionName();    // myframe 的id
 // 子调父
 window.parent.functionName();    
 </code></pre>
+<h4 id="-url">不刷新页面修改页面url</h4>
+<pre><code class="lang-js">  window.history.pushState(state, title, url);  // window可以不要
+  // 参数说明
+  // 1. state：要设置的history.state的值，可以是任意类型的值，可根据此值进行判断执行想要的操作,一般设为null
+  // 2. title: 现在大多数浏览器不支持或者忽略这个参数，最好用null代替
+  // 3. url: 要跳转到的URL地址，不能跨域
+  // 常用用法: istory.pushState(null, null, &quot;https://www.baidu.com&quot;);
+  window.history.replaceState(state, title, url);  // window可以不要
+  // 用法参数同上
+</code></pre>
+<ul>
+<li><code>pushState</code> 和 <code>replaceState</code> 的区别:       </li>
+<li>pushState 每执行一次都会增加一条历史记录，浏览器在返回时，就不会返回前一个页面了  </li>
+<li>replaceState 用来修改当前的历史记录,而不是创建一个新的历史记录,所以,点击返回按钮照样会返回上一个页面  </li>
+</ul>
 
           	</article>
         </div>

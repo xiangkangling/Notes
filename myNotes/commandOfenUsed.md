@@ -39,6 +39,19 @@ git branch -d test      //删除test分支
 git checkout test     // 切换到test分支
 git remote -v        // 查看远程仓库的地址
 
+git branch test master      // 根据本地master分支新建本地test分支     
+git checkout test         // 切换到本地test分支   
+git branch origin/test      // 根据当前本地test分支新建远程origin/test分支     
+
+git branch -d test    // 删除test分支
+
+```
+##### 新建git分支操作
+```js
+git branch dev test     // 1
+git checkout dev        // 2
+git branch origin/dev   // 3
+git push -u origin dev  // 4
 ```
 ##### git合并分支
 ```js

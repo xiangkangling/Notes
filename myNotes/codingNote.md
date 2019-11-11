@@ -98,6 +98,33 @@ $(window.frames["iframeChild"].document).find("input[@type='radio']").attr("chec
 $(window.parent.document).find("input[@type='radio']").attr("checked","true");
 ```
 
+#### iframe父调子页面方法和子调父页面方法
+```js
+// 父调子:
+// 方法一: 
+myFrame.window.functionName();  // myFrame为iframe的name属性 name="myFrame", 有兼容性问题, 大部分浏览器不支持
+// 方法二:
+$("#myframe")[0].contentWindow.functionName();    // myframe 的id
+// 子调父
+window.parent.functionName();    
+```
+
+#### 不刷新页面修改页面url
+```js
+  window.history.pushState(state, title, url);  // window可以不要
+  // 参数说明
+  // 1. state：要设置的history.state的值，可以是任意类型的值，可根据此值进行判断执行想要的操作,一般设为null
+  // 2. title: 现在大多数浏览器不支持或者忽略这个参数，最好用null代替
+  // 3. url: 要跳转到的URL地址，不能跨域
+  // 常用用法: istory.pushState(null, null, "https://www.baidu.com");
+  window.history.replaceState(state, title, url);  // window可以不要
+  // 用法参数同上
+```
+- `pushState` 和 `replaceState` 的区别:       
+- pushState 每执行一次都会增加一条历史记录，浏览器在返回时，就不会返回前一个页面了  
+- replaceState 用来修改当前的历史记录,而不是创建一个新的历史记录,所以,点击返回按钮照样会返回上一个页面  
+
+
 
 
 

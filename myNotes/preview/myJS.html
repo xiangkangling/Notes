@@ -1,7 +1,7 @@
 <html>
   <head>
 	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>i5ting_ztree_toc:vue-study</title>
+    <title>i5ting_ztree_toc:myJS</title>
 		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
 		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
 		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
@@ -65,21 +65,67 @@
 				</div>
         <div id='readme' style='width:70%;margin-left:20%;'>
           	<article class='markdown-body'>
-            	<h5 id="el-scrollbar-">el-scrollbar用法</h5>
-<p>pc端项目中，有时候会在页面内部出现滚动条的情况，windows浏览器默认的滚动条是很丑的，尤其是当滚动天出现在页面内部的时候，这时候，为了页面美观，可以考虑优化滚动条样式。<br>查看element源码，可以查到组件scrollbar<br>使用: </p>
-<pre><code class="lang-js">&lt;el-scrollbar&gt;&lt;/el-scrollbar&gt;  // 将会出现滚动的内容放到上述标签内就可以了。
+            	<blockquote>
+<p>js中一天的时间戳</p>
+</blockquote>
+<pre><code class="lang-js">86400 *1000 // 86400 = 60*60*24
 </code></pre>
-<h5 id="-">加载页面时不显示{{}}的方法</h5>
-<pre><code class="lang-css">&lt;style&gt;
-    [v-cloak] {
-        display: none;
-    }
-&lt;/style&gt;
+<h4 id="-h5-filereader-base64-">通过H5的FileReader把图片转成base64字符串</h4>
+<ul>
+<li>html<pre><code class="lang-html">&lt;img id=&quot;img&quot; src=&quot;&quot;&gt;
+&lt;input id=&quot;file&quot; type=&quot;file&quot; onchange=&quot;Tobase64()&quot;&gt;
 </code></pre>
-<pre><code class="lang-html">&lt;div class=&quot;app&quot; v-cloak&gt;
-    你的代码。。。。。。。。。。。。。。。
-&lt;/div&gt;
+</li>
+<li>js<pre><code class="lang-js">function Tobase64() {
+  let fileObj = document.getElementById(&#39;file&#39;).files[0]  //获取文件对象
+  let reader = new FileReader()   //新建一个FileReader对象
+  reader.readAsDataURL(fileObj)   //将读取的文件转换成base64格式
+  reader.onload = function(e) {
+      console.log(e.target.result)    //打印base64字符串
+  }
+}
 </code></pre>
+</li>
+</ul>
+<h4 id="-console-">将下面的代码放在console控制台中执行，整个页面将变得可编辑</h4>
+<pre><code class="lang-js">document.body.contentEditable=&#39;true&#39;
+</code></pre>
+<h4 id="-alertinfo">公用弹框alertinfo</h4>
+<ul>
+<li><p>html</p>
+<pre><code class="lang-html">&lt;div id=&quot;layout-wrap&quot;&gt;&lt;/div&gt;
+</code></pre>
+</li>
+<li><p>css</p>
+<pre><code class="lang-css">#alertinfo{
+  min-height:40px;
+  line-height:40px;
+  color:#fff;
+  text-align:center;
+  position: fixed;
+  width:90%;
+  background:rgba(0,0,0,0.5);
+  border-radius:5px;
+  left:5%;
+  top:50%;
+  z-index:100;
+}
+</code></pre>
+</li>
+<li><p>js</p>
+<pre><code class="lang-js">function alertinfo(message){
+  var thisNode=document.getElementById(&#39;alertinfo&#39;);
+  if(thisNode!=null &amp;&amp; thisNode!=undefined ){
+      thisNode.parentNode.removeChild(thisNode);
+  }        
+  document.getElementById(&#39;layout-wrap&#39;).insertAdjacentHTML(&#39;afterend&#39;, &#39;&lt;div id=&quot;alertinfo&quot;&gt;&#39;+message+&#39;&lt;/div&gt;&#39;);
+  setTimeout(function(){
+      document.body.removeChild(document.getElementById(&#39;alertinfo&#39;));
+  },3000);
+};
+</code></pre>
+</li>
+</ul>
 
           	</article>
         </div>

@@ -5,3 +5,17 @@ pc端项目中，有时候会在页面内部出现滚动条的情况，windows�
 ```js
 <el-scrollbar></el-scrollbar>  // 将会出现滚动的内容放到上述标签内就可以了。
 ```
+
+##### 加载页面时不显示{{}}的方法
+```css
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+```
+```html
+<div class="app" v-cloak>
+    你的代码。。。。。。。。。。。。。。。
+</div>
+```
