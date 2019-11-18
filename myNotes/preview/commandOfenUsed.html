@@ -121,6 +121,10 @@ git merge test          // 再将test分支合并到master分支上(如果有冲
 <p>增加第一个地址 <code>git remote add origin &lt;url1&gt;</code><br>然后增加第二个地址 <code>git remote set-url --add origin &lt;url2&gt;</code><br>增加第三个地址 <code>git remote set-url --add origin &lt;url3&gt;</code>        </p>
 <h5 id="live-server-">live-server的安装和使用命令</h5>
 <p>安装: <code>npm install -g live-server</code><br>打开: <code>live-server</code><br>指定端口打开(当默认端口8080被占用时使用): <code>live-server --port=8090</code><br>指定主机打开(默认主机是localhost): <code>live-server --host=127.0.0.1</code> </p>
+<h5 id="carzone-vpn-">carzone vpn开启关闭命令</h5>
+<pre><code class="lang-cmd">wg-quick up wg  //开启
+wg-quick down wg  //关闭
+</code></pre>
 
           	</article>
         </div>
