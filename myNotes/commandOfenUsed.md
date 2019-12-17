@@ -29,6 +29,8 @@ git commit -m "first commit"    // 提交文件,并给出提交内容的描述
 git remote add origin https://git.oschina.net/name/package.git   // 设置仓库的别名为origin, 这里用自己仓库的url
 git push origin master  // 提交到仓库master分支
 git remote rm origin  // 删除远程仓库
+git update-index --assume-unchanged /path/to/file   // 忽略某个文件
+git update-index --no-assume-unchanged /path/to/file   // 取消忽略某个文件
 ```
 ##### git分支相关命令
 ```js

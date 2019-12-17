@@ -124,6 +124,12 @@ window.parent.functionName();
 - pushState 每执行一次都会增加一条历史记录，浏览器在返回时，就不会返回前一个页面了  
 - replaceState 用来修改当前的历史记录,而不是创建一个新的历史记录,所以,点击返回按钮照样会返回上一个页面  
 
+#### input标签的type为number时,可以输入字母e的问题解决方案
+```html
+// 在input标签上添加
+<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))">
+```
+
 
 
 
