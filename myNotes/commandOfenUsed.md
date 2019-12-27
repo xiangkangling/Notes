@@ -46,7 +46,7 @@ git checkout test         // 切换到本地test分支
 git branch origin/test      // 根据当前本地test分支新建远程origin/test分支     
 
 git branch -d test    // 删除test分支
-
+git reset --hard 版本id   // 回滚到指定版本
 ```
 ##### 新建git分支操作
 ```js
